@@ -4,6 +4,7 @@ import ExcelExport from '../helpers/ExcelExport';
 import Record from '../models/Record';
 import { getDate } from '../utils/getDate';
 import Spacer from '../components/Spacer';
+import Footer from '../layouts/Footer';
 
 const date: Date = new Date();
 const formattedDate: string = date.toLocaleDateString('en-GB', {
@@ -54,7 +55,7 @@ const Home: FC = () => {
   };
 
   return (
-    <div className="App-header">
+    <div className="App-header" >
         <Spacer marginTop={30} />
         <FileUploader handleChange={(e : any) => handleChange(e)} name="file" types={fileTypes} />
         {data.length === 0 ? "" : <ExcelExport fileName={`${formattedDate}-vitalrecords`} data={data} />}
