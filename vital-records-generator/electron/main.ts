@@ -29,7 +29,7 @@ function createWindow() {
      win.center(); // Center the window
      
 
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
 
     // Hot Reloading on 'node_modules/.bin/electronPath'
     require('electron-reload')(__dirname, {
