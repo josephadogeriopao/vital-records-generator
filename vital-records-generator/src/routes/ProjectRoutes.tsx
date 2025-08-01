@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {HashRouter, Route, Routes } from "react-router-dom";
 import React from 'react'
 
 import Home from "../views/Home";
@@ -6,11 +6,11 @@ import Home from "../views/Home";
 const ProjectRoutes = () => {
 
   return (
-    <BrowserRouter >	
+    <HashRouter >	
         <Routes >						
             <Route path="/" element={<Home />} index /> 
         </Routes>
-    </BrowserRouter>
+    </HashRouter>
 
   )
 }
