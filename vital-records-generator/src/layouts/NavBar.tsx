@@ -7,7 +7,9 @@ const NavBar = () => {
     <nav>
           <div className="w3-top">
     <div className="w3-bar w3-white w3-card" id="myNavbar" style={{height:50}}>
-      <a href="#home" className="w3-bar-item w3-button w3-wide">
+      <a href="#home" className="w3-bar-item w3-button w3-wide"
+        style={{ pointerEvents :"none"}}
+      >
         <Logo />
 
         <Company />

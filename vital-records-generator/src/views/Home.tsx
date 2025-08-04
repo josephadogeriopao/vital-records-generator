@@ -3,12 +3,10 @@ import { FileUploader } from "react-drag-drop-files";
 import ExcelExport from '../helpers/ExcelExport';
 import Record from '../models/Record';
 import { getDate } from '../utils/getDate';
-import Spacer from '../components/Spacer';
-import Logo from '../components/Logo';
-import Company from '../components/Company';
 import Table from '../components/Table';
 import Footer from '../layouts/Footer';
 import NavBar from "../layouts/NavBar"
+import Button from '../components/Button';
 
 const date: Date = new Date();
 const formattedDate: string = date.toLocaleDateString('en-GB', {
@@ -19,9 +17,12 @@ console.log(formattedDate);
 const Home: FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [data, setData] = useState<any[]>([]);
-  const [text, setText] = useState<string[]>([]);
 
   const fileTypes: string[] = ["TXT"];
+
+  const handleClick = () => {
+    console.log('Button clicked!');
+  };
 
   const handleChange = (e: File | File[]) => {
     const reader: FileReader = new FileReader();
@@ -32,7 +33,6 @@ const Home: FC = () => {
         const lines: string[] = fileText.split('\r\n');
 
         let records: any[] = [];
-        let textRecords: string[] = [];
         for (let index: number = 0; index < lines.length; index++) {
           let record: Record = new Record();
           record.setSSN(lines[index].substr(0, 9));
@@ -46,10 +46,8 @@ const Home: FC = () => {
           record.setAge(lines[index].substr(-3, 3));
 
           records.push(record);
-          textRecords.push(JSON.stringify(record, null, 2));
         }
         setData(records);
-        setText(textRecords);
         setFile(e as File)
       }
     };
@@ -87,8 +85,12 @@ const Home: FC = () => {
          />
          {data.length === 0 ? "" : <ExcelExport fileName={`${formattedDate}-vitalrecords`} data={data} />}
          <p>{file ? `File name: ${file.name}` : "no files uploaded yet"} {JSON.stringify(file)}</p>
-         <h1>content</h1>
-  
+      <div style={{position : "absolute", top: 400,left: "50%",   transform: "translate(-50%)"}}
+     >
+          <Button label="Click Me" onClick={handleClick} />
+          <Button label="Disabled Button" onClick={() => {}} disabled={true} />
+          <Button label="Custom Styled" onClick={handleClick} className="my-custom-button" />
+        </div>  
 
           {!file?<></> :<Table records={data}/>}
     </div>

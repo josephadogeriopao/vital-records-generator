@@ -10,7 +10,6 @@ interface ExcelExportProps {
 }
 
 const ExcelExport: FC<ExcelExportProps> = ({ data, fileName }) => {
-  alert(JSON.stringify(data, null, 2))
   const exportToExcel = (): void => {
     const worksheet = XLSX.utils.json_to_sheet(data,{ skipHeader: true });
     const workbook = XLSX.utils.book_new();
