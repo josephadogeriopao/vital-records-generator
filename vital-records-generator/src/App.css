@@ -66,16 +66,11 @@
   align-self:center;
   justify-self:center;
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;    /* Centers vertically */
-  marginLeft: 3000px;
-  left:30px;
   position: absolute;
-  bottom: 50%;
   left: 50%;
   right: 50%;
 
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -20%);
 
   
 }
@@ -84,3 +79,34 @@
   border-color: #007bff;
   background-color: #e0f0ff;
 }
+
+/* Table styles */
+/*
+.table-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    width: 100%;
+    bottom:100px;
+    position: absolute;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+thead, tbody {
+    display: block;
+}
+tbody {
+    max-height: 250px;
+    overflow-y: auto;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    width: 33%;
+    box-sizing: border-box;
+}
+
+*/

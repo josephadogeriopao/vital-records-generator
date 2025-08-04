@@ -10,12 +10,13 @@ interface ExcelExportProps {
 }
 
 const ExcelExport: FC<ExcelExportProps> = ({ data, fileName }) => {
+  alert(JSON.stringify(data, null, 2))
   const exportToExcel = (): void => {
-    const worksheet = XLSX.utils.json_to_sheet(data);
+    const worksheet = XLSX.utils.json_to_sheet(data,{ skipHeader: true });
     const workbook = XLSX.utils.book_new();
     XLSX.utils.sheet_add_aoa(worksheet, heading, { origin: 'A1' });
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-    const excelBuffer: Uint8Array = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const excelBuffer: Uint8Array = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' });
 
     const blob: Blob = new Blob([excelBuffer], { type: 'application/octet-stream;vnd.ms-excel;charset=utf-8' });
     saveAs(blob, `${fileName}.xlsx`);
