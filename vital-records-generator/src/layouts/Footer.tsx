@@ -7,9 +7,7 @@ const Footer = () => {
   <footer className="w3-center w3-black w3-bottom"
   style={{padding : "0px", height: 50}}
   >
-    <p >
       <CopyRightNotice />
-    </p>
   </footer>
   )
 }
