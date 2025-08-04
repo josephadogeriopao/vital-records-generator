@@ -5,7 +5,7 @@ const CopyrightNotice = () => {
   const copyrightHolder = "Orleans Parish Assessor's Office"; // Replace with your company or individual name
 
   return (
-    <p style={{ textAlign: 'center', padding: '20px', fontSize: '0.9em' }}>
+    <p style={{ textAlign: 'center', padding: '0px', fontSize: '0.9em' }}>
       &copy; {currentYear} {copyrightHolder}. All rights reserved.
     </p>
   );

@@ -4,7 +4,9 @@ import CopyRightNotice from "../components/CopyRightNotice"
 const Footer = () => {
     
   return (
-  <footer className="w3-center w3-black w3-padding-32 w3-bottom">
+  <footer className="w3-center w3-black w3-bottom"
+  style={{padding : "0px", height: 50}}
+  >
     <p >
       <CopyRightNotice />
     </p>

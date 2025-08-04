@@ -4,6 +4,7 @@ import ExcelExport from '../helpers/ExcelExport';
 import Record from '../models/Record';
 import { getDate } from '../utils/getDate';
 import Spacer from '../components/Spacer';
+import Logo from '../components/Logo';
 import Footer from '../layouts/Footer';
 
 const date: Date = new Date();
@@ -17,7 +18,7 @@ const Home: FC = () => {
   const [data, setData] = useState<any[]>([]);
   const [text, setText] = useState<string[]>([]);
 
-  const fileTypes: string[] = ["JPG", "PNG", "GIF", "TXT"];
+  const fileTypes: string[] = ["TXT"];
 
   const handleChange = (e: any) => {
     const reader: FileReader = new FileReader();
@@ -55,17 +56,6 @@ const Home: FC = () => {
   };
 
   return (
-    // <div className="App-header" >
-    //     <Spacer marginTop={30} />
-    //     <FileUploader handleChange={(e : any) => handleChange(e)} name="file" types={fileTypes} 
-    //     />
-    //     {data.length === 0 ? "" : <ExcelExport fileName={`${formattedDate}-vitalrecords`} data={data} />}
-    //     <p>{file ? `File name: ${file.name}` : "no files uploaded yet"} {JSON.stringify(file)}</p>
-    //     <h1>content</h1>
-    //     {text.length === 0 ? "" : text.map((value: string, index: number) => {
-    //         return <p key={index}>{value} {value.length}</p>;
-    //       })}
-    // </div>
 <>
   <style
     dangerouslySetInnerHTML={{
@@ -77,7 +67,7 @@ const Home: FC = () => {
   <div className="w3-top">
     <div className="w3-bar w3-white w3-card" id="myNavbar">
       <a href="#home" className="w3-bar-item w3-button w3-wide">
-        LOGO
+        <Logo />
       </a>
       {/* Right-sided navbar links */}
       <div className="w3-right w3-hide-small">
@@ -207,62 +197,23 @@ const Home: FC = () => {
   >
     <h3 className="w3-center">CONTACT</h3>
     <p className="w3-center w3-large">Lets get in touch. Send us a message:</p>
-    <div style={{ marginTop: 48 }}>
-      <p>
-        <i className="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right" />{" "}
-        Chicago, US
-      </p>
-      <p>
-        <i className="fa fa-phone fa-fw w3-xxlarge w3-margin-right" /> Phone:
-        +00 151515
-      </p>
-      <p>
-        <i className="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i>{" "}
-        Email: mail@mail.com
-      </p>
-      <br />
-      <form action="/action_page.php" target="_blank">
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Name"
-            required={false}            name="Name"
-          />
-        </p>
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Email"
-            required={false}            
-            name="Email"
-          />
-        </p>
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Subject"
-            required={false}            
-            name="Subject"
-          />
-        </p>
-        <p>
-          <input
-            className="w3-input w3-border"
-            type="text"
-            placeholder="Message"
-            required={false}            
-            name="Message"
-          />
-        </p>
-        <p>
-          <button className="w3-button w3-black" type="submit">
-            <i className="fa fa-paper-plane" /> SEND MESSAGE
-          </button>
-        </p>
-      </form>
+    <div style={{ marginTop: 40, alignItems: "center", justifyContent:"center",
+            alignSelf:"center", justifyItems:"center"
+     }}>
+   
+
+         <FileUploader handleChange={(e : any) => handleChange(e)} 
+            classes="custom-file-uploader w3-center" name="file" types={fileTypes} 
+         />
+         {data.length === 0 ? "" : <ExcelExport fileName={`${formattedDate}-vitalrecords`} data={data} />}
+         <p>{file ? `File name: ${file.name}` : "no files uploaded yet"} {JSON.stringify(file)}</p>
+         <h1>content</h1>
+         {text.length === 0 ? "" : text.map((value: string, index: number) => {
+             return <p key={index}>{value} {value.length}</p>;
+           })}
+
+
+   
       {/* Image of location/map */}
       <img
         src="/w3images/map.jpg"
