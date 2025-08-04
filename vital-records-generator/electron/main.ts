@@ -6,7 +6,7 @@ function createWindow() {
   const win = new BrowserWindow({
 //  frame: false,
     width: 1000,
-    height: 700,
+    height: 800,
     // useContentSize: true,
    center : true,
     // backgroundColor: '#000000',
