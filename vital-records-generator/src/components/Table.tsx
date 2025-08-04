@@ -4,6 +4,7 @@ import "./Table.css"
 
 type TableProps={
     records? : Record[]
+    isData? : boolean;
 }
 const Table : React.FC<TableProps>= ({records }) => {
   return (

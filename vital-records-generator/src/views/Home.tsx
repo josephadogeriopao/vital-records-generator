@@ -7,6 +7,7 @@ import Table from '../components/Table';
 import Footer from '../layouts/Footer';
 import NavBar from "../layouts/NavBar"
 import Button from '../components/Button';
+import exportToExcel from '../helpers/exportToExcel';
 
 const date: Date = new Date();
 const formattedDate: string = date.toLocaleDateString('en-GB', {
@@ -29,7 +30,6 @@ const Home: FC = () => {
   
   const handleChange = (e: File | File[]) => {
     try{
-    alert(JSON.stringify(e, null , 2))
 
     const reader: FileReader = new FileReader();
     reader.readAsText(e as Blob);
@@ -106,16 +106,16 @@ const Home: FC = () => {
          uploadedLabel={file && data.length > 0?"Uploaded Successfully! Upload another?" : "upload or drop a file right here"}
             classes="custom-file-uploader w3-center" name="file" types={fileTypes} 
          />
-         {data.length === 0 ? "" : <ExcelExport fileName={`${formattedDate}-vitalrecords`} data={data} />}
          <p>{file ? `File name: ${file.name}` : "no files uploaded yet"} {JSON.stringify(file)}</p>
       <div style={{position : "absolute", top: 400,left: "50%",   transform: "translate(-50%)"}}
      >
           <Button label="Clear File" onClick={unSelectFile} disabled={isDisabled}/>
           <Button label="Export CSV" onClick={() => {}} disabled={isDisabled} />
-          <Button label="Export Excel" onClick={handleClick} disabled={isDisabled} className="my-custom-button" />
+          <Button label="Export Excel" onClick={()=>{exportToExcel(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} className="my-custom-button" />
+
         </div>  
 
-          {!file?<></> :<Table records={data}/>}
+          <Table records={data} isData={file === null}/>
     </div>
 
   </div>
