@@ -37,7 +37,7 @@ table th {
 }
 
 .table-container {
-  max-height: 250px;
+  max-height: 225px;
   overflow-y: auto;
   border: 1px solid #ccc;
   width: 95%;
