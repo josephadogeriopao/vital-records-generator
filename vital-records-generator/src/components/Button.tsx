@@ -13,7 +13,10 @@
       const buttonClasses = `button-base ${className || ''}`; // Combine base and custom classes
 
       return (
-        <button onClick={onClick} disabled={disabled} className={buttonClasses}>
+        <button onClick={onClick} disabled={disabled} className={buttonClasses}
+                style={{height:15, paddingBottom:20, fontSize:12, justifyContent:"center"
+                }}
+        >
           {label}
         </button>
       );

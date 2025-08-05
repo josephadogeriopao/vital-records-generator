@@ -1,9 +1,9 @@
 import React from 'react'
-import Record from "../models/Record"
 import "./Table.css"
+import VitalRecord from '../models/VitalRecord';
 
 type TableProps={
-    records? : Record[]
+    records? : VitalRecord[]
     isData? : boolean;
 }
 const Table : React.FC<TableProps>= ({records }) => {
@@ -25,7 +25,7 @@ const Table : React.FC<TableProps>= ({records }) => {
                 </tr>
             </thead>
             <tbody>
-                {
+                {records && records.length > 0?
                     records?.map((record,index)=>{
                         return (
                         <tr>
@@ -41,7 +41,19 @@ const Table : React.FC<TableProps>= ({records }) => {
                             <td>{record.getAge()}</td>
                         </tr>
                         )
-                    })
+                    }) :
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
                 }
             </tbody>
         </table>

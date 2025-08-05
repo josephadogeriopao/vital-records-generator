@@ -16,10 +16,7 @@ const NavBar = () => {
       </a>
       {/* Right-sided navbar links */}
       <div className="w3-right w3-hide-small">
-        <a href="#about" className="w3-bar-item w3-button">
-          ABOUT
-        </a>
-        <a href="#team" className="w3-bar-item w3-button">
+         <a href="#team" className="w3-bar-item w3-button">
           <i className="fa fa-user" /> TEAM
         </a>
         <a href="#work" className="w3-bar-item w3-button">

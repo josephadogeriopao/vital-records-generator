@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 

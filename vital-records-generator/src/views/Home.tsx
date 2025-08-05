@@ -1,7 +1,6 @@
 import React, { useState, FC } from 'react';
 import { FileUploader } from "react-drag-drop-files";
-import ExcelExport from '../helpers/ExcelExport';
-import Record from '../models/Record';
+import VitalRecord from '../models/VitalRecord';
 import { getDate } from '../utils/getDate';
 import Table from '../components/Table';
 import Footer from '../layouts/Footer';
@@ -9,22 +8,9 @@ import NavBar from "../layouts/NavBar"
 import Button from '../components/Button';
 import exportToExcel from '../helpers/exportToExcel';
 import { CSVLink } from "react-csv";
+import generateCSVData from '../utils/generateCSVData';
+import { headers } from '../data/headers';
 
-const headers = [
-  { label: "First Name", key: "firstname" },
-  { label: "Last Name", key: "lastname" },
-  { label: "Email", key: "email" }
-];
-
-const csvdata = [
-  { firstname: "Ahmed", lastname: "Tomi", email: "ah@smthing.co.com" },
-  { firstname: "Raed", lastname: "Labes", email: "rl@smthing.co.com" },
-  { firstname: "Yezzi", lastname: "Min l3b", email: "ymin@cocococo.com" }
-];
-
-// <CSVLink data={data} headers={headers}>
-//   Download me
-// </CSVLink>;
 
 const date: Date = new Date();
 const formattedDate: string = date.toLocaleDateString('en-GB', {
@@ -39,11 +25,6 @@ const Home: FC = () => {
 
   const fileTypes: string[] = ["TXT"];
 
-  const handleClick = () => {
-    console.log('Button clicked!');
-  };
-
-
   
   const handleChange = (e: File | File[]) => {
     try{
@@ -56,8 +37,8 @@ const Home: FC = () => {
         const lines: string[] = fileText.split('\r\n');
 
         let records: any[] = [];
-        for (let index: number = 0; index < lines.length; index++) {
-          let record: Record = new Record();
+        for (let index: number = 0; index < lines.length -1; index++) {
+          let record: VitalRecord = new VitalRecord();
           record.setSSN(lines[index].substr(0, 9));
           record.setOwner(lines[index].substr(9, 27));
           record.setResCode(lines[index].substr(36, 3));
@@ -67,7 +48,6 @@ const Home: FC = () => {
           record.setDOD(getDate(lines[index].substr(-12, 8)));
           record.setSex(lines[index].substr(-4, 1));
           record.setAge(lines[index].substr(-3, 3));
-
           records.push(record);
         }
         setData(records);
@@ -123,16 +103,19 @@ const Home: FC = () => {
          uploadedLabel={file && data.length > 0?"Uploaded Successfully! Upload another?" : "upload or drop a file right here"}
             classes="custom-file-uploader w3-center" name="file" types={fileTypes} 
          />
-         <p>{file ? `File name: ${file.name}` : "no files uploaded yet"} {JSON.stringify(file)}</p>
+         {/* <p style={{position: "sticky",marginTop: 2,zIndex: 2,}}>{file ? `File name: ${file.name}` : "no files uploaded yet"} {JSON.stringify(file)}</p> */}
+         <br />
+         <br />
+
+        Total Records: {data.length === 0 ?<span style={{color:"red"}}>0</span> : <span>{data.length}</span>}, FileName: {file ? `${file.name}` : "no files uploaded yet"}
       <div style={{position : "absolute", top: 400,left: "50%",   transform: "translate(-50%)"}}
      >
           <Button label="Clear File" onClick={unSelectFile} disabled={isDisabled}/>
-          {/* <Button label="Export CSV" onClick={() => {exportToCSV(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} /> */}
           <Button label="Export Excel" onClick={()=>{exportToExcel(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} className="my-custom-button" />
- <CSVLink data={csvdata} headers={headers}  >
+ <CSVLink data={generateCSVData(data)} headers={headers}  filename={`${formattedDate}-vitalrecords`}>
              <Button label="Export CSV" disabled={isDisabled}></Button>
 
- </CSVLink>;
+ </CSVLink>
         </div>  
 
           <Table records={data} isData={file === null}/>

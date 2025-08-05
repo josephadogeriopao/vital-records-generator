@@ -1,4 +1,4 @@
-class Record {
+class VitalRecord {
     private ssn : string = "";
     private owner: string = "";
     private rescode: string = "";
@@ -46,11 +46,6 @@ class Record {
 
     getAge = () : string => this.age;
 
-    toArray = () : string[] => {
-        return [this.getSSN(),this.getOwner(),this.getResCode(),this.getAddress(),
-                this.getCity(),this.getDOB(),this.getDOD(),this.getSex(),this.getAge()
-        ]
-    }
     instance =()=>{
         return {
             ssn: this.ssn,
@@ -66,4 +61,4 @@ class Record {
     }
 }
 
-export default Record;
+export default VitalRecord;
