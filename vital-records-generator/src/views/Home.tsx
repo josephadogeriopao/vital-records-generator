@@ -129,7 +129,7 @@ const Home: FC = () => {
           <Button label="Clear File" onClick={unSelectFile} disabled={isDisabled}/>
           {/* <Button label="Export CSV" onClick={() => {exportToCSV(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} /> */}
           <Button label="Export Excel" onClick={()=>{exportToExcel(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} className="my-custom-button" />
- <CSVLink data={data} headers={headers}  >
+ <CSVLink data={csvdata} headers={headers}  >
              <Button label="Export CSV" disabled={isDisabled}></Button>
 
  </CSVLink>;
