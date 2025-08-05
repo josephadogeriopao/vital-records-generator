@@ -1,3 +1,4 @@
+import { getDate } from "../utils/getDate";
 class VitalRecord {
     private ssn : string = "";
     private owner: string = "";
@@ -58,6 +59,18 @@ class VitalRecord {
             sex: this.sex,
             age: this.age
         }
+    }
+
+    populate = (line : string) =>{
+        this.setSSN(line.substr(0, 9));
+        this.setOwner(line.substr(9, 27));
+        this.setResCode(line.substr(36, 3));
+        this.setAddress(line.substr(39, 22));
+        this.setCity(line.substr(61, 17));
+        this.setDOB(getDate(line.substr(-20, 8)));
+        this.setDOD(getDate(line.substr(-12, 8)));
+        this.setSex(line.substr(-4, 1));
+        this.setAge(line.substr(-3, 3));
     }
 }
 

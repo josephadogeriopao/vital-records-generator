@@ -7,8 +7,8 @@ const NavBar = () => {
     <nav>
           <div className="w3-top">
     <div className="w3-bar w3-white w3-card" id="myNavbar" style={{height:50}}>
-      <a href="#home" className="w3-bar-item w3-button w3-wide"
-        style={{ pointerEvents :"none"}}
+      <a href="#home" className="w3-button w3-wide"
+         style={{ pointerEvents :"none"}}
       >
         <Logo />
 
@@ -16,15 +16,15 @@ const NavBar = () => {
       </a>
       {/* Right-sided navbar links */}
       <div className="w3-right w3-hide-small">
+        <a href="#" className="w3-bar-item w3-button">
+          <i className="fa fa-home" /> HOME
+        </a>
          <a href="#team" className="w3-bar-item w3-button">
           <i className="fa fa-user" /> TEAM
         </a>
-        <a href="#work" className="w3-bar-item w3-button">
-          <i className="fa fa-th" /> WORK
-        </a>
-        <a href="#contact" className="w3-bar-item w3-button">
+        {/* <a href="#contact" className="w3-bar-item w3-button">
           <i className="fa fa-envelope" /> CONTACT
-        </a>
+        </a> */}
       </div>
       {/* Hide right-floated links on small screens and replace them with a menu icon */}
       <a
