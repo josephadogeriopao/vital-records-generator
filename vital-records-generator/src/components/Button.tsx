@@ -4,7 +4,7 @@
 
     export interface ButtonProps {
       label: string; // The text displayed on the button
-      onClick: () => void; // Function to be called when the button is clicked
+      onClick?: () => void; // Function to be called when the button is clicked
       disabled?: boolean; // Optional prop to disable the button
       className?: string; // Optional prop for custom CSS classes
     }

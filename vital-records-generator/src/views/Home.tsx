@@ -8,7 +8,23 @@ import Footer from '../layouts/Footer';
 import NavBar from "../layouts/NavBar"
 import Button from '../components/Button';
 import exportToExcel from '../helpers/exportToExcel';
-import exportToCSV from '../helpers/exportToCSV';
+import { CSVLink } from "react-csv";
+
+const headers = [
+  { label: "First Name", key: "firstname" },
+  { label: "Last Name", key: "lastname" },
+  { label: "Email", key: "email" }
+];
+
+const csvdata = [
+  { firstname: "Ahmed", lastname: "Tomi", email: "ah@smthing.co.com" },
+  { firstname: "Raed", lastname: "Labes", email: "rl@smthing.co.com" },
+  { firstname: "Yezzi", lastname: "Min l3b", email: "ymin@cocococo.com" }
+];
+
+// <CSVLink data={data} headers={headers}>
+//   Download me
+// </CSVLink>;
 
 const date: Date = new Date();
 const formattedDate: string = date.toLocaleDateString('en-GB', {
@@ -111,9 +127,12 @@ const Home: FC = () => {
       <div style={{position : "absolute", top: 400,left: "50%",   transform: "translate(-50%)"}}
      >
           <Button label="Clear File" onClick={unSelectFile} disabled={isDisabled}/>
-          <Button label="Export CSV" onClick={() => {exportToCSV(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} />
+          {/* <Button label="Export CSV" onClick={() => {exportToCSV(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} /> */}
           <Button label="Export Excel" onClick={()=>{exportToExcel(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} className="my-custom-button" />
+ <CSVLink data={data} headers={headers}  >
+             <Button label="Export CSV" disabled={isDisabled}></Button>
 
+ </CSVLink>;
         </div>  
 
           <Table records={data} isData={file === null}/>
