@@ -118,11 +118,32 @@ You will also see any lint errors in the console.
 
 ### 3.1 Run Electron App Development ###
 
+1 type command npm run electron:dev to run the app in elctron app pane development mode.\
+
+a build directory will be generated as shown below.
+
+![Screenshot 1](assets/images/test.png) 
+
+
+The desktop app will reload if you make edits.\
+You will also see any lint errors in the developer tool console if enabled in main.ts (vital-records-generator/vital-records-generator/electron/main.ts).
+
+
+```bash
+  npm run electron:dev
+```
+
 ### 3.2 Run Electron App Production ###
 
+1 type command npm run electron:build to bundle app .\
+
+a dist directory will be generated as shown below.
+
+![Screenshot 1](assets/images/test.png) 
 
 
-
+The desktop app will reload if you make edits.\
+You will also see any lint errors in the developer tool console if enabled in main.ts (vital-records-generator/vital-records-generator/electron/main.ts).
 
 
 ```bash
@@ -131,14 +152,6 @@ You will also see any lint errors in the console.
 
 ![Screenshot 1](assets/images/build.png) 
 
-
-### 3.1 Testing The Executable (windows) ###
-
-4 Copy (executable-template-js-win.exe) in dist directory to app directory.
-
-5 Double click on executable-template-js-win.exe. An output json file will be created.
-
-![Screenshot 1](assets/images/test.png) 
 
 ## **4. License**
 
