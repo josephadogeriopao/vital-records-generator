@@ -8,6 +8,7 @@ import Footer from '../layouts/Footer';
 import NavBar from "../layouts/NavBar"
 import Button from '../components/Button';
 import exportToExcel from '../helpers/exportToExcel';
+import exportToCSV from '../helpers/exportToCSV';
 
 const date: Date = new Date();
 const formattedDate: string = date.toLocaleDateString('en-GB', {
@@ -110,7 +111,7 @@ const Home: FC = () => {
       <div style={{position : "absolute", top: 400,left: "50%",   transform: "translate(-50%)"}}
      >
           <Button label="Clear File" onClick={unSelectFile} disabled={isDisabled}/>
-          <Button label="Export CSV" onClick={() => {}} disabled={isDisabled} />
+          <Button label="Export CSV" onClick={() => {exportToCSV(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} />
           <Button label="Export Excel" onClick={()=>{exportToExcel(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} className="my-custom-button" />
 
         </div>  

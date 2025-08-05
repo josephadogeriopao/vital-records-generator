@@ -37,15 +37,14 @@ table th {
 }
 
 .table-container {
-  max-height: 225px;
+  max-height: 200px;
   overflow-y: auto;
   border: 1px solid #ccc;
   width: 95%;
   align-self: center;
   justify-self: center;
-  bottom:60px;
-  left:20px;
-  position: absolute;
+  position: sticky;
+  z-index: 2;
 }
 
 .dialog-container {

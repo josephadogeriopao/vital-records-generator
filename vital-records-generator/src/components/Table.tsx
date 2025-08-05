@@ -10,7 +10,7 @@ const Table : React.FC<TableProps>= ({records }) => {
   return (
           <div className="table-container">
         <table>
-            <thead>
+            <thead >
                 <tr>
                     <th>#</th>
                     <th>SSN</th>

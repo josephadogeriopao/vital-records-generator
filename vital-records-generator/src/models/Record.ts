@@ -51,6 +51,19 @@ class Record {
                 this.getCity(),this.getDOB(),this.getDOD(),this.getSex(),this.getAge()
         ]
     }
+    instance =()=>{
+        return {
+            ssn: this.ssn,
+            owner : this.owner,
+            rescode: this.rescode,
+            address: this.address,
+            city: this.city,
+            dob: this.dob,
+            dod: this.dod,
+            sex: this.sex,
+            age: this.age
+        }
+    }
 }
 
 export default Record;
