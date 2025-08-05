@@ -1,46 +1,154 @@
-# Getting Started with Create React App
+# **Vital Records Generator**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Version:** 1.0.0
+**Date:** June 4, 2025
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Electron.
 
-Runs the app in the development mode.\
+## Authors
+
+[@jadogeri](https://www.github.com/jadogeri)
+[@josephadogeriopao](https://www.github.com/josephadogeriopao)
+
+## Repository
+
+ [https://github.com/jadogeri/Executable-Template-JS.git](https://github.com/jadogeri/Executable-Template-JS.git)
+
+## Screenshots
+
+| ![Screenshot 1](assets/images/screenshot1.png) | ![screenshot 2](assets/images/screenshot2.png) |
+| -------------------------------------------- | -------------------------------------------- |
+|                                              |                                              |
+
+## Table of Contents
+
+<ul>
+      <li><a href="#1-introduction">1. Introduction</a>
+        <ul>
+          <li><a href="#11-purpose">1.1 Purpose</a> </li>
+          <li><a href="#12-scope">1.2 Scope</a> </li>
+          <li><a href="#13-intended-audience">1.3 Intended Audience</a> </li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="#2-technology-stack">2. Technology Stack</a>
+      </li>
+    </ul>
+        <li><a href="#3-usage">3. Usage</a> </li>
+        <ul>
+          <li><a href="#30-run-electron-app-react">3.0 Run Electron App React</a> </li>
+          <li><a href="#31-run-electron-app-development">3.1 Run Electron App Development</a> </li>
+          <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> </li>
+        </ul>
+    <ul>  
+        <li><a href="#4-license">4. License</a>
+        </li>
+    </ul> 
+    <ul> 
+        <li><a href="#5-references">5. References</a>
+        </li>
+    <ul>
+
+## **1. Introduction**
+
+### **1.1 Purpose**
+
+This document outlines a template to build Electron App for windows.
+
+### **1.2 Scope**
+
+This template will allow users to:
+
+- Package and build cross-platform desktop applications created with the Electron framework. 
+- Simplifies the process of creating distributable packages for macOS, Windows, and Linux. 
+- Generates installers, managing auto-updates, and bundling all the necessary files for distribution.
+
+### **1.3 Intended Audience**
+
+- Junior or Senior developers.
+- Beginners learning typescript.
+
+---
+
+### **2. Technology Stack**
+
+- **Programming Languages**: Typescript
+- **IDE**: Visual Studio Code (VSCode)
+- **Source Control**: Git and GitHub
+- **Code Analysis**: SonarQube
+
+### **3. Usage**
+
+0 Open a terminal then type git clone https://github.com/josephadogeriopao/vital-records-generator.git
+to download to project.
+
+```bash
+git clone https://github.com/josephadogeriopao/vital-records-generator.git
+
+```
+
+1 Type cd vital-records-generator/vital-records-generator to navigate into the app directory.
+
+```bash
+  cd vital-records-generator/vital-records-generator
+```
+
+2 Type npm install --force command to install dependencies.
+
+```bash
+  npm install --force
+```
+
+### 3.0 Run Electron App React ###
+
+1 type command npm start to run the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+```bash
+  npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3.1 Run Electron App Development ###
 
-### `npm run build`
+### 3.2 Run Electron App Production ###
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Screenshot 1](assets/images/build.png) 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### 3.1 Testing The Executable (windows) ###
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4 Copy (executable-template-js-win.exe) in dist directory to app directory.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5 Double click on executable-template-js-win.exe. An output json file will be created.
+
+![Screenshot 1](assets/images/test.png) 
+
+## **4. License**
+
+[LICENSE](/LICENSE)
+
+---
+
+## **5. References**
+
+* FreeCodeCamp : [Frontend Web Development: (HTML, CSS, JavaScript, TypeScript, React)](https://www.youtube.com/watch?v=MsnQ5uepIa).
+* AweSome Open Source : [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+* Readme.so : [The easiest way to create a README](https://readme.so/)
+* Medium : [How to fix__dirname](https://iamwebwiz.medium.com/how-to-fix-dirname-is-not-defined-in-es-module-scope-34d94a86694d)
