@@ -37,14 +37,14 @@ Electron.
     <li><a href="#2-technology-stack">2. Technology Stack</a> </li>
     <li><a href="#3-usage">3. Usage</a> 
         <ul>
-          <li><a href="#30-run-electron-app-react">3.0 Run Electron App React</a> </li>
-          <li><a href="#31-run-electron-app-development">3.1 Run Electron App Development</a> </li>
-          <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> 
-              <ul> 
-                <li><a href="#5-references">3.2.1 Standalone (Portable) Version</a></li>
-                <li><a href="#5-references">3.2.2  Installer version</a></li>
-               <ul>
-          </li>
+            <li><a href="#30-run-electron-app-react">3.0 Run Electron App React</a> </li>
+            <li><a href="#31-run-electron-app-development">3.1 Run Electron App Development</a> </li>
+            <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> 
+                <ul> 
+                    <li><a href="#5-references">3.2.1 Standalone (Portable) Version</a></li>
+                    <li><a href="#5-references">3.2.2  Installer version</a></li>
+                </ul>
+            </li>
         </ul>
     </li>  
     <li><a href="#4-license">4. License</a> </li>
