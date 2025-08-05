@@ -27,32 +27,29 @@ Electron.
 ## Table of Contents
 
 <ul>
-      <li><a href="#1-introduction">1. Introduction</a>
+    <li><a href="#1-introduction">1. Introduction</a>
         <ul>
           <li><a href="#11-purpose">1.1 Purpose</a> </li>
           <li><a href="#12-scope">1.2 Scope</a> </li>
           <li><a href="#13-intended-audience">1.3 Intended Audience</a> </li>
         </ul>
-      </li>
-    </ul>
-    <ul>
-      <li><a href="#2-technology-stack">2. Technology Stack</a>
-      </li>
-    </ul>
-        <li><a href="#3-usage">3. Usage</a> </li>
+    </li>
+    <li><a href="#2-technology-stack">2. Technology Stack</a> </li>
+    <li><a href="#3-usage">3. Usage</a> 
         <ul>
           <li><a href="#30-run-electron-app-react">3.0 Run Electron App React</a> </li>
           <li><a href="#31-run-electron-app-development">3.1 Run Electron App Development</a> </li>
-          <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> </li>
+          <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> 
+              <ul> 
+                <li><a href="#5-references">3.2.1 Standalone (Portable) Version</a></li>
+                <li><a href="#5-references">3.2.2  Installer version</a></li>
+               <ul>
+          </li>
         </ul>
-    <ul>  
-        <li><a href="#4-license">4. License</a>
-        </li>
-    </ul> 
-    <ul> 
-        <li><a href="#5-references">5. References</a>
-        </li>
-    <ul>
+    </li>  
+    <li><a href="#4-license">4. License</a> </li>
+    <li><a href="#5-references">5. References</a></li>
+</ul>
 
 ## **1. Introduction**
 
@@ -122,7 +119,7 @@ You will also see any lint errors in the console.
 
 a build directory will be generated as shown below.
 
-![Screenshot 1](assets/images/test.png) 
+![Screenshot 1](assets/images/dev.png) 
 
 
 The desktop app will reload if you make edits.\
@@ -147,10 +144,11 @@ You will also see any lint errors in the developer tool console if enabled in ma
 
 
 ```bash
-  npm run build
+  npm run electron:build
 ```
 
-![Screenshot 1](assets/images/build.png) 
+![Screenshot 1](assets/images/prod.png) 
+
 
 
 ## **4. License**
