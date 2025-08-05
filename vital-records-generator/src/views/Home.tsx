@@ -63,7 +63,7 @@ const Home: FC = () => {
                       }}
         />
         <br /> <br />
-        Total Records: {data.length === 0 ?<span style={{color:"red"}}>0</span> : <span>{data.length}</span>}, FileName: {file ? `${file.name}` : "no files uploaded yet"}
+        Total Records: {data.length === 0 ?<span style={{color:"red"}}>0</span> : <span>{data.length}</span>}, FileName: {file ? `${file.name}` : <span style={{color:"red"}}>no files uploaded yet</span>}
         <div style={{position : "absolute", top: 400,left: "50%",   transform: "translate(-50%)"}}>
           <Button label="Clear File" onClick={unSelectFile} disabled={isDisabled}/>
           <Button label="Export Excel" onClick={()=>{exportToExcel(data, `${formattedDate}-vitalrecords`)}} disabled={isDisabled} className="my-custom-button" />
