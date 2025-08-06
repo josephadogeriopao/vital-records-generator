@@ -48,8 +48,7 @@ Electron.
             </li>
         </ul>
     </li>  
-    <li><a href="#4-license">4. License</a> </li>
-    <li><a href="#5-references">5. References</a></li>
+    <li><a href="#4-references">4. References</a></li>
 </ul>
 
 ## **1. Introduction**
@@ -188,15 +187,9 @@ vital-records-generator application can be uninstalled via searching or control 
 
 ![Screenshot 1](assets/images/controlpanel.png) 
 
-
-
-## **4. License**
-
-[LICENSE](/LICENSE)
-
 ---
 
-## **5. References**
+## **4. References**
 
 * FreeCodeCamp : [Frontend Web Development: (HTML, CSS, JavaScript, TypeScript, React)](https://www.youtube.com/watch?v=MsnQ5uepIa).
 * AweSome Open Source : [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
