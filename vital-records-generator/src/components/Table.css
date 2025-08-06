@@ -40,7 +40,7 @@ table th {
   max-height: 200px;
   overflow-y: auto;
   border: 1px solid #ccc;
-  width: 95%;
+  width: 100%;
   align-self: center;
   justify-self: center;
   position: sticky;

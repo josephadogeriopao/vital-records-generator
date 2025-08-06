@@ -22,9 +22,6 @@ const NavBar = () => {
          <a href="#team" className="w3-bar-item w3-button">
           <i className="fa fa-user" /> TEAM
         </a>
-        {/* <a href="#contact" className="w3-bar-item w3-button">
-          <i className="fa fa-envelope" /> CONTACT
-        </a> */}
       </div>
       {/* Hide right-floated links on small screens and replace them with a menu icon */}
       <a
