@@ -55,7 +55,7 @@ Electron.
 
 ### **1.1 Purpose**
 
-This document outlines a template to build Electron App for windows.
+This document outlines a template to build and run Vital Records Generator profram for windows.
 
 ### **1.2 Scope**
 
@@ -89,7 +89,7 @@ git clone https://github.com/josephadogeriopao/vital-records-generator.git
 
 ```
 
-1 Type cd vital-records-generator/vital-records-generator to navigate into the app directory.
+1 Type cd vital-records-generator/vital-records-generator command.
 
 ```bash
   cd vital-records-generator/vital-records-generator
@@ -115,7 +115,7 @@ You will also see any lint errors in the console.
 
 ### 3.1 Run Electron App Development ###
 
-1 type command npm run electron:dev to run the app in electron app pane development mode.\
+1 type command npm run electron:dev to run the app in electron app pane in development mode.\
 
 a build directory will be generated as shown below.
 
@@ -139,8 +139,7 @@ a dist directory will be generated as shown below.
 ![Screenshot 1](assets/images/prod.png) 
 
 
-The desktop app will reload if you make edits.\
-You will also see any lint errors in the developer tool console if enabled in main.ts (vital-records-generator/vital-records-generator/electron/main.ts).
+The standalone and installer version of app will be inside /dist directory.
 
 
 ```bash
@@ -155,7 +154,7 @@ You will also see any lint errors in the developer tool console if enabled in ma
 
 ![Screenshot 1](assets/images/standalone.png) 
 
-The application can be run without installation.\
+The application can run without installation.\
 
 ### 3.2.2  Installer version ###
 
@@ -179,7 +178,7 @@ vital-records-generator application can be uninstalled via searching or control 
 
 1 Open control panel application.
 
-2 Under Programs, click Uninstall a program.
+2 Under Programs, click uninstall a program.
 
 3 Scroll and locate the application in the list.
 
