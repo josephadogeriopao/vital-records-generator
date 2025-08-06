@@ -16,7 +16,7 @@ Electron.
 
 ## Repository
 
- [https://github.com/jadogeri/Executable-Template-JS.git](https://github.com/jadogeri/Executable-Template-JS.git)
+ [https://github.com/josephadogeriopao/vital-records-generator.git](https://github.com/josephadogeriopao/vital-records-generator.git)
 
 ## Screenshots
 
@@ -41,8 +41,9 @@ Electron.
             <li><a href="#31-run-electron-app-development">3.1 Run Electron App Development</a> </li>
             <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> 
                 <ul> 
-                    <li><a href="#5-references">3.2.1 Standalone (Portable) Version</a></li>
-                    <li><a href="#5-references">3.2.2  Installer version</a></li>
+                    <li><a href="#321-standalone-portable-version">3.2.1 Standalone (Portable) Version</a></li>
+                    <li><a href="#322-installer-version">3.2.2  Installer Version</a></li>
+                    <li><a href="#323-uninstalling-program">3.2.3  Uninstalling Program</a></li>
                 </ul>
             </li>
         </ul>
@@ -115,7 +116,7 @@ You will also see any lint errors in the console.
 
 ### 3.1 Run Electron App Development ###
 
-1 type command npm run electron:dev to run the app in elctron app pane development mode.\
+1 type command npm run electron:dev to run the app in electron app pane development mode.\
 
 a build directory will be generated as shown below.
 
@@ -136,7 +137,7 @@ You will also see any lint errors in the developer tool console if enabled in ma
 
 a dist directory will be generated as shown below.
 
-![Screenshot 1](assets/images/test.png) 
+![Screenshot 1](assets/images/prod.png) 
 
 
 The desktop app will reload if you make edits.\
@@ -147,7 +148,45 @@ You will also see any lint errors in the developer tool console if enabled in ma
   npm run electron:build
 ```
 
-![Screenshot 1](assets/images/prod.png) 
+### 3.2.1 Standalone (Portable) Version ###
+
+1 Navigate to /dist/win-unpacked directory.
+
+2 Double click on vital-records-generator.exe (Application) to run the program.
+
+![Screenshot 1](assets/images/standalone.png) 
+
+The application can be run without installation.\
+
+### 3.2.2  Installer version ###
+
+1 Navigate to /dist/ directory.
+
+2 Double click on vital-records-generator Setup 0.1.0 .exe (Application) to install the  program.
+
+![Screenshot 1](assets/images/installer.png) 
+
+### 3.2.3  Uninstalling program ###
+
+vital-records-generator application can be uninstalled via searching or control panel
+
+### Searching ###
+
+1 Search for program using search box, then press uninstall.
+
+![Screenshot 1](assets/images/searching.png) 
+
+### Control Panel ###
+
+1 Open control panel application.
+
+2 Under Programs, click Uninstall a program.
+
+3 Scroll and locate the application in the list.
+
+4 Left click on the application, then click uninstall button.
+
+![Screenshot 1](assets/images/controlpanel.png) 
 
 
 
