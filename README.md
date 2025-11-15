@@ -7,7 +7,7 @@
 
 ## Description
 
-Electron.
+Electron app to generate vital records list in typescript
 
 ## Authors
 
