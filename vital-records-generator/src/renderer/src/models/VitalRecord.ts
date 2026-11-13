@@ -1,4 +1,5 @@
 import { getDate } from "../utils/getDate";
+
 class VitalRecord {
     private ssn : string = "";
     private owner: string = "";

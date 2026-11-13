@@ -1,9 +1,12 @@
-import React from 'react'
 
+import logo from "../assets/logo.png";
 const Logo = () => {
   return (
     <img
-        src={require("../assets/logo.png")} height={32} width={32} 
+      src={logo}
+      alt="Logo"
+      height={32}
+      width={32}
     />
   )
 }

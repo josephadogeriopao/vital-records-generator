@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Table.css"
-import VitalRecord from '../models/VitalRecord';
+import VitalRecord from '../../models/VitalRecord';
 
 type TableProps={
     records? : VitalRecord[]
