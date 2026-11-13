@@ -1,28 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "allowImportingTsExtensions": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "composite": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "rootDir": "src",
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "skipLibCheck": true,
+    "types": ["node", "electron-vite/node"]
   },
   "include": [
-    "src"
+    "electron.vite.config.*",
+    "src/main/**/*",
+    "src/preload/**/*",
+    "src/preload/*.d.ts"
   ]
 }
