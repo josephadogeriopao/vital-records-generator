@@ -1,196 +1,125 @@
-# **Vital Records Generator**
+# Vital Records Generator · Version 2
 
-**Version:** 1.0.0
-**Date:** June 4, 2025
+A local-first Electron + Vite records workspace for the Orleans Parish Assessor’s Office.
+The implementation follows [`VERSION2.txt`](VERSION2.txt).
 
----
+## Documentation
 
-## Description
+The repository root contains this guide and the requirements. The application
+and its `package.json` live in the nested `vital-records-generator/` directory.
+Use this canonical `README.md` spelling; do not create a second case-only
+`READMe.md` file on Windows or other case-insensitive filesystems.
 
-Electron app to generate vital records list in typescript
+- [Application quick start](vital-records-generator/README.md)
+- [User guide](docs/USER_GUIDE.md): importing, reviewing, exporting, and file history.
+- [Input formats](docs/DATA_FORMATS.md): field order, dates, layouts, and validation.
+- [Architecture](docs/ARCHITECTURE.md): Electron processes, IPC, state, and exports.
+- [Testing and desktop checklist](docs/TESTING.md)
+- [Contributing](CONTRIBUTING.md) and [security/privacy guidance](SECURITY.md)
+- [Changelog](CHANGELOG.md)
+- [Cleanup review](TO_DELETE.txt): unused-file candidates; nothing is deleted.
 
-## Authors
+## Run and verify
 
-[@jadogeri](https://www.github.com/jadogeri)
-[@josephadogeriopao](https://www.github.com/josephadogeriopao)
-
-## Repository
-
- [https://github.com/josephadogeriopao/vital-records-generator.git](https://github.com/josephadogeriopao/vital-records-generator.git)
-
-## Screenshots
-
-| ![Screenshot 1](assets/images/screenshot1.png) | ![screenshot 2](assets/images/screenshot2.png) |
-| -------------------------------------------- | -------------------------------------------- |
-|                                              |                                              |
-
-## Table of Contents
-
-<ul>
-    <li><a href="#1-introduction">1. Introduction</a>
-        <ul>
-          <li><a href="#11-purpose">1.1 Purpose</a> </li>
-          <li><a href="#12-scope">1.2 Scope</a> </li>
-          <li><a href="#13-intended-audience">1.3 Intended Audience</a> </li>
-        </ul>
-    </li>
-    <li><a href="#2-technology-stack">2. Technology Stack</a> </li>
-    <li><a href="#3-usage">3. Usage</a> 
-        <ul>
-            <li><a href="#30-run-electron-app-react">3.0 Run Electron App React</a> </li>
-            <li><a href="#31-run-electron-app-development">3.1 Run Electron App Development</a> </li>
-            <li><a href="#32-run-electron-app-production">3.2 Run Electron App Production</a> 
-                <ul> 
-                    <li><a href="#321-standalone-portable-version">3.2.1 Standalone (Portable) Version</a></li>
-                    <li><a href="#322-installer-version">3.2.2  Installer Version</a></li>
-                    <li><a href="#323-uninstalling-program">3.2.3  Uninstalling Program</a></li>
-                </ul>
-            </li>
-        </ul>
-    </li>  
-    <li><a href="#4-references">4. References</a></li>
-</ul>
-
-## **1. Introduction**
-
-### **1.1 Purpose**
-
-This document outlines a template to build and run Vital Records Generator profram for windows.
-
-### **1.2 Scope**
-
-This template will allow users to:
-
-- Package and build cross-platform desktop applications created with the Electron framework. 
-- Simplifies the process of creating distributable packages for macOS, Windows, and Linux. 
-- Generates installers, managing auto-updates, and bundling all the necessary files for distribution.
-
-### **1.3 Intended Audience**
-
-- Junior or Senior developers.
-- Beginners learning typescript.
-
----
-
-### **2. Technology Stack**
-
-- **Programming Languages**: Typescript
-- **IDE**: Visual Studio Code (VSCode)
-- **Source Control**: Git and GitHub
-- **Code Analysis**: SonarQube
-
-### **3. Usage**
-
-0 Open a terminal then type git clone https://github.com/josephadogeriopao/vital-records-generator.git
-to download to project.
-
-```bash
-git clone https://github.com/josephadogeriopao/vital-records-generator.git
-
+```sh
+cd vital-records-generator
+npm ci
+npm run dev
 ```
 
-1 Type cd vital-records-generator/vital-records-generator command.
-
-```bash
-  cd vital-records-generator/vital-records-generator
+```sh
+npm run typecheck
+npm test
+npx playwright install chromium
+npm run test:ui
+npm run build
+npm run build:win
 ```
 
-2 Type npm install --force command to install dependencies.
+Run these commands from the application directory, not the repository root.
+`npm run build:win` builds Windows packages using electron-builder; use a Windows
+machine for the target-OS smoke test. Native toolchain or signing configuration
+may be required for your distribution environment. Build artifacts go to `out/`;
+installer output goes to `dist/`. Neither belongs in source control.
 
-```bash
-  npm install --force
-```
+Node 22+ is recommended. Browser tests use Playwright's Chromium; `CHROMIUM_PATH`
+can point to a compatible existing Chromium executable. `vite.preview.config.ts`
+serves the renderer for tests only. Electron uses the existing `electron.vite.config.ts`.
 
-### 3.0 Run Electron App React ###
+## Version 2 coverage
 
-1 type command npm start to run the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Requirements | Implementation |
+| --- | --- |
+| 1–5 · validation | Duplicate groups require normalized owner+DOB+DOD together, with valid birth/death dates; SSN alone does not match; explicit merge confirmation; invalid-cell highlighting; whitespace, title case, dates, SSN normalization; privacy masking in preview and every report; downloadable issues with physical source line numbers. |
+| 6–10 · table | Global search; combined CITY, RESCODE, SEX, age and death-month filters; double-click/Enter editing; delete and add rows; sortable columns; 25/50/100-row pagination. |
+| 11–14 · imports | Multiple dropped/opened TXT/CSV files; source tracking; auto or explicit comma/tab/pipe/legacy fixed-width layouts; saved sequential custom-width profiles; BOM, CRLF/LF/CR support; last 10 native files with reload. |
+| 15–19 · exports | Paginated PDF with header/timestamp/count; selectable columns; all/filtered scope; styled Excel with frozen header, auto-width, actual date cells, zebra stripes and filters; native save dialog for every format. |
+| 20–23 · desktop | Summary cards plus sex/city/RESCODE counts; persistent local activity; light/dark/high-contrast themes; native application menu and Cmd/Ctrl+O/S/F. |
+| 24–28 · polish/tests | Persisted theme, filename, profiles and privacy setting; reduced-motion-aware processing indicator; JSON export with generation metadata, selected columns, masking flag and sources; designated `tests` directory with parser, export, storage and UI tests. |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Input and review behavior
 
-```bash
-  npm start
-```
+- Default fixed-width retains the original parser's offsets: SSN `[0,9)`, owner
+  `[9,36)`, RESCODE `[36,39)`, address `[39,61)`, city `[61,78)`; the final 20
+  characters contain DOB (8), DOD (8), sex (1), age (3). Extra middle padding
+  remains supported. Rows shorter than 98 characters are skipped.
+- Custom profiles specify **nine sequential widths**, in the displayed column
+  order, without gaps. Profile widths must exactly match each line length.
+- Delimited inputs without headers use `ssn,owner,rescode,address,city,dob,dod,sex,age`.
+  Named headers can be reordered; a source column from exports is accepted.
+  Dates support MMDDYYYY, M/D/YYYY, YYYY-MM-DD and D-MMM-YYYY.
+- Quoted CSV supports delimiters, doubled quotes and embedded newlines. Logs
+  report the record's starting physical line, not its preview row number.
+- Malformed row structure is skipped; invalid field values remain editable and
+  flagged. Fixing a cell updates validation. SSN editing is disabled while masked.
+- Import appends to the workspace. Clear removes in-memory rows, not original
+  files. Reload reads the current source file and appends it; duplicates are flagged.
+- Duplicate merge keeps the first nonempty value per field, retains first values
+  on conflicts, combines source filenames, and requires confirmation. It has no undo.
+- Duplicate matching requires all three fields: owner, DOB, and DOD. Owner matching
+  ignores case and repeated spaces; supported dates are normalized before comparison.
+  Missing/invalid dates and death before birth do not produce matches. SSN alone
+  (or owner+DOB without a matching DOD) is no longer considered a duplicate.
+- Recent files has a Remove button beside Reload and a confirmed Clear all file
+  history action for all remembered TXT/CSV entries. These forget history only:
+  source files, loaded records, and activity events remain unchanged. Re-importing
+  a removed file adds it to history again.
+- City/RESCODE summaries show the top four of each to keep the compact UI usable;
+  all cities and codes remain available in filters.
 
-### 3.1 Run Electron App Development ###
+## Privacy and storage
 
-1 type command npm run electron:dev to run the app in electron app pane in development mode.\
+SSNs default to masked. A full-SSN export requires confirmation. Masking applies
+to Excel, CSV, PDF and JSON; source filename is always included. Exporting with
+remaining issues or duplicate groups also requires confirmation.
 
-a build directory will be generated as shown below.
+Record contents exist only in memory. Theme, privacy toggle, output filename and
+layout profiles persist in renderer local storage. Recent file paths and up to
+200 activity events persist atomically in `activity-v2.json` inside Electron's
+user-data directory; activity contains counts/metadata, not record field values.
+No cloud connection or CDN assets are used. CSV text is escaped and spreadsheet
+formula prefixes are neutralized. The renderer is sandboxed with context isolation,
+no Node integration, a limited preload bridge, and blocked external navigation.
+Local history is not encrypted; source files and exported reports remain the user's
+responsibility. Imports are limited to 25 MB per file, and export IPC to 100 MB.
 
-![Screenshot 1](assets/images/dev.png) 
+## Window dimensions and layout
 
+The existing `BrowserWindow` sizing rules are unchanged: default width
+`Math.min(1000, screenWidth)`, height `Math.min(800, screenHeight)`, minimum
+600×500, existing screen-based maximums, centered and resizable. The preview
+table scrolls horizontally and vertically inside a bounded, keyboard-focusable
+region, with sticky column headers and visible scrollbars. Its panel cannot shrink
+and clip the controls. First/previous/next/last pagination supports 25/50/100 rows
+per page and resets appropriately when filtering or changing page size. The
+workspace scrolls vertically inside the original window rather than increasing
+its dimensions. A persistent footer includes the existing office copyright notice.
 
-The desktop app will reload if you make edits.\
-You will also see any lint errors in the developer tool console if enabled in main.ts (vital-records-generator/vital-records-generator/electron/main.ts).
+## Verification boundary
 
-
-```bash
-  npm run electron:dev
-```
-
-### 3.2 Run Electron App Production ###
-
-1 type command npm run electron:build to bundle app .\
-
-a dist directory will be generated as shown below.
-
-![Screenshot 1](assets/images/prod.png) 
-
-
-The standalone and installer version of app will be inside /dist directory.
-
-
-```bash
-  npm run electron:build
-```
-
-### 3.2.1 Standalone (Portable) Version ###
-
-1 Navigate to /dist/win-unpacked directory.
-
-2 Double click on vital-records-generator.exe (Application) to run the program.
-
-![Screenshot 1](assets/images/standalone.png) 
-
-The application can run without installation.\
-
-### 3.2.2  Installer version ###
-
-1 Navigate to /dist/ directory.
-
-2 Double click on vital-records-generator Setup 0.1.0 .exe (Application) to install the  program.
-
-![Screenshot 1](assets/images/installer.png) 
-
-### 3.2.3  Uninstalling program ###
-
-vital-records-generator application can be uninstalled via searching or control panel
-
-### Searching ###
-
-1 Search for program using search box, then press uninstall.
-
-![Screenshot 1](assets/images/searching.png) 
-
-### Control Panel ###
-
-1 Open control panel application.
-
-2 Under Programs, click uninstall a program.
-
-3 Scroll and locate the application in the list.
-
-4 Left click on the application, then click uninstall button.
-
-![Screenshot 1](assets/images/controlpanel.png) 
-
----
-
-## **4. References**
-
-* FreeCodeCamp : [Frontend Web Development: (HTML, CSS, JavaScript, TypeScript, React)](https://www.youtube.com/watch?v=MsnQ5uepIa).
-* AweSome Open Source : [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
-* Readme.so : [The easiest way to create a README](https://readme.so/)
-* Medium : [How to fix__dirname](https://iamwebwiz.medium.com/how-to-fix-dirname-is-not-defined-in-es-module-scope-34d94a86694d)
+Unit tests verify parsing, normalization, strict dates, duplicate merging,
+filters, masking, formula-safe CSV, actual Excel structure, JSON metadata, PDF
+generation, and concurrent local-history writes. Browser tests cover the renderer.
+Native Electron dialogs, operating-system menus, and the Windows installer
+still require a desktop smoke test on the target OS; a browser preview does not
+prove those operating-system interactions.
