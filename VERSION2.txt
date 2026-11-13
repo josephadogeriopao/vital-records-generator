@@ -36,4 +36,12 @@ Analytics, Security & Desktop Experience
 21. Audit Trail & Activity Log. Maintain a local history log recording when each file was imported, how many records were processed, and when exports occurred.
 22. Dark Mode & High-Contrast Theme. Add a theme toggle in the navbar for comfortable viewing during extended data-entry sessions.
 23. Keyboard Shortcuts & Native Application Menu. Add desktop shortcuts (Ctrl+O to open a .txt file, Ctrl+S to export Excel, Ctrl+F to jump to search).
-24. Offline Local Storage / Draft Auto-Save. Automatically save in-progress edits locally using IndexedDB or local JSON storage so work is never lost if the window closes accidentally.
+
+UI
+24. Add dark and light theme
+25. Save Theme. filename used in local storage and load
+26. Add animation when Processing
+27. Add export as json functionality in json add 
+
+Tests
+28. Add unit tests and designated /tests directory
