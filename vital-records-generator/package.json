@@ -27,5 +27,22 @@
     "react-dom": "^19.0.0",
     "typescript": "^5.7.2",
     "vite": "^6.0.0"
+  },
+  "build": {
+    "appId": "com.josephadogeri.electronapp",
+    "productName": "Electron App",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "dir"
+      ]
+    }
   }
 }
