@@ -1,8 +1,8 @@
 import {HashRouter, Route, Routes } from "react-router-dom";
 import Footer from "../layouts/Footer";
 import NavBar from "../layouts/NavBar";
-import Team from "../views/Team";
 import Home from "../views/Home";
+import Team from "../views/Team";
 
 const ProjectRoutes = () => {
 
