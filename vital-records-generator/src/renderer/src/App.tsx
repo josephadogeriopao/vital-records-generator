@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import ProjectRoutes from './routes/ProjectRoutes';
+import Workspace from './workspace/Workspace'
+import './App.css'
+import './workspace/navigation.css'
 
 
 function App() {
   return (
-    <ProjectRoutes />
+    <Workspace />
   );
 }
 
