@@ -1,5 +1,5 @@
 {
-  "name": "electron-app",
+  "name": "vital-records-generator",
   "version": "2.0.0",
   "main": "./out/main/index.js",
   "description": "Electron-vite application for generating vital records report",
