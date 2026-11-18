@@ -106,7 +106,7 @@ function createWindow(): void {
   const appIcon =
     process.platform === 'win32'
       ? join(__dirname, '../../resources/icon.ico')
-      : join(__dirname, '../../resources/logo.png')
+      : join(__dirname, '../../resources/icon.png')
 
   const mainWindow = new BrowserWindow({
     width: Math.min(1000, screenWidth),

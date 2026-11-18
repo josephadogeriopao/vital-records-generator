@@ -133,7 +133,7 @@ function registerIPC() {
 }
 function createWindow() {
   const { width: screenWidth, height: screenHeight } = electron.screen.getPrimaryDisplay().workAreaSize;
-  const appIcon = process.platform === "win32" ? node_path.join(__dirname, "../../resources/icon.ico") : node_path.join(__dirname, "../../resources/logo.png");
+  const appIcon = process.platform === "win32" ? node_path.join(__dirname, "../../resources/icon.ico") : node_path.join(__dirname, "../../resources/icon.png");
   const mainWindow = new electron.BrowserWindow({
     width: Math.min(1e3, screenWidth),
     height: Math.min(800, screenHeight),
