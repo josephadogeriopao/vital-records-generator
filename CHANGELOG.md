@@ -3,7 +3,12 @@
 This file records implemented changes, not a promise that an installer has been
 released or signed. Package version is currently `2.0.0`.
 
-## Unreleased
+## - 2026-11-18
+
+### Assets and cleanup
+
+- Updated application logo and build icons to use `icon.ico` and `icon.png`.
+- Deleted unused legacy component files and obsolete cleanup candidates.
 
 ### Interface and records follow-up
 
@@ -20,10 +25,8 @@ released or signed. Package version is currently `2.0.0`.
 
 - Expanded the root README and added an application-directory quick start.
 - Added user, data-format, architecture, testing, contribution, and security guides.
-- Added `TO_DELETE.txt`, an evidence-based review list of legacy unused files.
-- No cleanup candidates were deleted by the documentation update.
 
-## Version 2 baseline
+### Version 2 baseline
 
 - Rebuilt the compact local-first Electron workspace while preserving window sizing.
 - Added batch fixed-width/delimited import, validation, normalization, issue logs,
@@ -32,6 +35,3 @@ released or signed. Package version is currently `2.0.0`.
 - Added Excel/CSV/JSON/PDF exports, selected columns/scopes, and native save dialogs.
 - Added summaries, themes, recent-file reload, local activity, and menu shortcuts.
 - Added sandboxed renderer boundaries and parser/export/storage/browser tests.
-
-The initial baseline matched duplicates by SSN or owner+DOB. The unreleased
-follow-up intentionally replaces that rule with owner+DOB+DOD.
